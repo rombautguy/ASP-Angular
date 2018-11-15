@@ -1,0 +1,16 @@
+
+<div id="main-wrapper" [ngClass]="
+    {
+        'mini-sidebar': showMinisidebar,
+        'dark-theme': showDarktheme,
+        'horizontal-nav': showHorizontalNav,
+        'boxed': showBoxedtheme                         
+    }
+">
+    <div class="page-wrapper">
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    
+</div>

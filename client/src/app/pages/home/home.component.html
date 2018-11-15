@@ -1,0 +1,60 @@
+
+<div class="row m-t-10 news">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body collapse show">
+        <ng2-smart-table
+          #userTable
+          class=""
+          [settings]="userTableSettings"
+          [source]="users"
+          (userRowSelect)="onUserSelected($event)"
+          (createConfirm)="onUserCreateConfirm($event)"
+          (editConfirm)="onUserSaveConfirm($event)"
+          (deleteConfirm)="onUserDeleteConfirm($event)"
+        ></ng2-smart-table>
+      </div>
+    </div>
+    <div class="card" *ngIf="selectedUser">
+      <div class="card-body collapse show">
+        <ng2-smart-table
+          class=""
+          [settings]="taskTableSettings"
+          [source]="tasks"
+          (userRowSelect)="onTaskSelected($event)"
+          (createConfirm)="onTaskCreateConfirm($event)"
+          (editConfirm)="onTaskSaveConfirm($event)"
+          (deleteConfirm)="onTaskDeleteConfirm($event)"
+        ></ng2-smart-table>
+      </div>
+    </div>
+    <div class="card" *ngIf="selectedTask">
+      <div class="card-body collapse show">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="col">
+              <p class="small font-weight-bold">Title: <span class="font-weight-normal ml-2">{{selectedTask.title}}</span></p>
+            </div>
+            <div class="col">
+              <p class="small font-weight-bold">Description: <span class="font-weight-normal ml-2">{{selectedTask.description}}</span></p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="col">
+              <p class="small font-weight-bold">Priority: <span class="font-weight-normal ml-2">{{selectedTask.priority}}</span></p>
+            </div>
+            <div class="col">
+              <p class="small font-weight-bold">Estimate: <span class="font-weight-normal ml-2">{{selectedTask.estimate}}</span></p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="col">
+              <p class="small font-weight-bold">Status: <span class="font-weight-normal ml-2">{{selectedTask.state}}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
